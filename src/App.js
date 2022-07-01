@@ -9,6 +9,7 @@ import {
 import "./App.css";
 import Users from "./user/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
+import UserPlaces from "./places/pages/UserPlaces"
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 // import Card from "./shared/components/UIElements/Card";
 
@@ -20,16 +21,11 @@ function App() {
 				{/* this route will work only when the path is exactly "/" */}
 				<Route path="/" exact={true}>
 					<Users/>
-					{/* <Card>
-						<div className="p-10 text-center font-bold text-white">
-							Main Page
-						</div>
-					</Card> */}
 				</Route>
 
-				{/* <Route path="/users">
-					<Users />
-				</Route> */}
+				<Route path="/:uid/places" exact>
+					<UserPlaces />
+				</Route>
 
 				<Route path="/places/new" exact>
 					<NewPlace />
