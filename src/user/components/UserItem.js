@@ -8,7 +8,7 @@ const UserItem = (props) => {
 		<li>
 			<Card>
 			<Link to={`/${props.id}/places`}>
-				<div className="flex flex-row px-5 py-3">
+				<div className="flex flex-row">
 					<div className="rounded-full overflow-hidden w-20 h-20 border-4 border-yellow-500 group-hover:border-yellow-400">
 						<img
 							src={props.image}

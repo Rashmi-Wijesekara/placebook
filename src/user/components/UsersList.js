@@ -8,7 +8,7 @@ const UsersList = (props) => {
 	if (props.items.length === 0) {
 		return (
 			<Card>
-				<h2 className="px-4 py-5 text-center font-semibold">No users found!</h2>
+				<h2 className="text-center font-semibold">No users found!</h2>
 			</Card>
 		);
 	}
