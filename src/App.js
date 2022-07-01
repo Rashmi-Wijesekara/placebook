@@ -10,7 +10,8 @@ import "./App.css";
 import Users from "./user/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
-import Card from "./shared/components/UIElements/Card";
+// import Card from "./shared/components/UIElements/Card";
+
 function App() {
 	return (
 		<Router>
@@ -18,16 +19,17 @@ function App() {
 			<Switch>
 				{/* this route will work only when the path is exactly "/" */}
 				<Route path="/" exact={true}>
-					<Card>
+					<Users/>
+					{/* <Card>
 						<div className="p-10 text-center font-bold text-white">
 							Main Page
 						</div>
-					</Card>
+					</Card> */}
 				</Route>
 
-				<Route path="/users">
+				{/* <Route path="/users">
 					<Users />
-				</Route>
+				</Route> */}
 
 				<Route path="/places/new" exact>
 					<NewPlace />
