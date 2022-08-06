@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react';
-import GoogleMapReact from 'google-map-react';
+// import GoogleMapReact from 'google-map-react';
 
 const Map = (props) => {
 	const mapRef = useRef()
@@ -20,18 +20,7 @@ const Map = (props) => {
 	}, [center, zoom])
 
 	return (
-		<div ref={mapRef} className="">MAP here</div>
-		// <div className="">
-		// 	<GoogleMapReact
-		// 		bootstrapURLKeys={{
-		// 			key: "AIzaSyAN9zbYJKdlq9ZPp2JMH-ms9_3uzXytK2k",
-		// 		}}
-		// 		defaultCenter={center}
-		// 		center={center}
-		// 		defaultZoom={zoom}
-		// 		margin={[50, 50, 50, 50]}
-		// 	></GoogleMapReact>
-		// </div>
+		<div ref={mapRef} className="w-[80vw] h-[50vh] md:w-96 md:h-96">MAP here</div>
 	);
 
 }

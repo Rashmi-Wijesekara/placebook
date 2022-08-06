@@ -6,7 +6,7 @@ const Modal = (props) => {
 		props.onClose(false);
 	};
 
-	console.log(props.open);
+	// console.log(props.open);
 
 	return (
 		<React.Fragment>
