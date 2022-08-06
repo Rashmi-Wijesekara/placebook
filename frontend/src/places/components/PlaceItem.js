@@ -2,6 +2,7 @@ import React, {useState} from "react";
 
 import Card from "../../shared/components/UIElements/Card";
 import Modal from "../../shared/components/UIElements/Modal"
+import Map from "./Map"
 
 const PlaceItem = (props) => {
 
@@ -54,7 +55,11 @@ const PlaceItem = (props) => {
 			</Card>
 		</li>
 
-		{openModal && <Modal onClose={closeModalHandler} />}
+		{openModal && <Modal open={openModal} onClose={closeModalHandler}>
+			<div className="">
+			<Map center={props.coordinates} zoom={16} />
+			</div>
+		</Modal>}
 		</React.Fragment>
 	);
 };
