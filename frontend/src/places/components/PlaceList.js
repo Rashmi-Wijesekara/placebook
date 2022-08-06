@@ -7,7 +7,9 @@ const PlaceList = (props) => {
 		return (
 			<Card>
 				<h2>No Places found. Create One!</h2>
-				<button>Share Place</button>
+				<button className="text-white font-semibold text-lg bg-amber-400 px-5 py-2 rounded-xl my-3 w-fit mx-auto hover:shadow-xl active:translate-y-2 hover:scale-95 transform duration:300">
+					Share Place
+				</button>
 			</Card>
 		);
 

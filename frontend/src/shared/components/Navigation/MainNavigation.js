@@ -26,15 +26,16 @@ const MainNavigation = (props) => {
 
 			{/* if drawerIsOpen === true; show the drawer */}
 		
+			{drawerIsOpen && (
+				<Backdrop onClick={closeDrawerHandler} />
+			)}
+			
 			<SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
 				<nav className="flex flex-col md:hidden">
 					<NavLinks />
 				</nav>
 			</SideDrawer>
 			
-			{drawerIsOpen && (
-				<Backdrop onClick={closeDrawerHandler} />
-			)}
 			<MainHeader>
 				<div className="flex flex-row py-4">
 					<button

@@ -5,7 +5,7 @@ const NavLinks = () => {
 	return (
 		<ul
 			className="mt-10 md:mt-0
-		flex flex-col md:flex-0 md:flex-row gap-12 ml-10"
+		flex flex-col md:flex-0 md:flex-row gap-12 ml-10 md:justify-end md:mr-10"
 		>
 			<li className="font-mono font-semibold text-lg text-amber-200">
 				<NavLink
