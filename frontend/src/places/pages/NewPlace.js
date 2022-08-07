@@ -14,7 +14,9 @@ const NewPlace = () => {
 	);
 
 	return (
-		<form className="">
+		<form
+			className={`shadow-lg rounded-xl px-10 py-12 mx-auto max-w-lg font-mono font-semibold`}
+		>
 			<Input
 				id="title"
 				element="input"

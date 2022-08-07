@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from "react";
-import {validate} from "../../utils/validators"
+import { validate } from "../../utils/validators";
 
 const inputReducer = (state, action) => {
 	switch (action.type) {
@@ -7,13 +7,13 @@ const inputReducer = (state, action) => {
 			return {
 				...state,
 				value: action.val,
-				isValid: validate(action.val, action.validators)
+				isValid: validate(action.val, action.validators),
 			};
 		case "TOUCH":
 			return {
 				...state,
-				isTouched: true
-			}
+				isTouched: true,
+			};
 		default:
 			return state;
 	}
@@ -23,11 +23,11 @@ const Input = (props) => {
 	const [inputState, dispatch] = useReducer(inputReducer, {
 		value: "",
 		isValid: false,
-		isTouched: false
+		isTouched: false,
 	});
 
-	const {id, onInput} = props;
-	const {value, isValid} = inputState;
+	const { id, onInput } = props;
+	const { value, isValid } = inputState;
 
 	useEffect(() => {
 		onInput(id, value, isValid);
@@ -35,17 +35,17 @@ const Input = (props) => {
 
 	const changeHandler = (event) => {
 		dispatch({
-			type: 'CHANGE',
+			type: "CHANGE",
 			val: event.target.value,
-			validators: props.validators
-		})
-	}
+			validators: props.validators,
+		});
+	};
 
 	const touchHandler = (event) => {
 		dispatch({
-			type: 'TOUCH'
-		})
-	}
+			type: "TOUCH",
+		});
+	};
 
 	const element =
 		props.element === "input" ? (
@@ -56,8 +56,10 @@ const Input = (props) => {
 				onChange={changeHandler}
 				value={inputState.value}
 				onBlur={touchHandler}
-				className={`border-2 border-slate-200 mx-5 px-2 py-1 rounded-xl ${
-					inputState.isTouched && 'bg-red-200 border-red-400'
+				className={`border-2 w-full border-slate-200 rounded-2 px-2 py-1 rounded-xl focus:outline-none focus:border-slate-400 ${
+					!inputState.isValid &&
+					inputState.isTouched &&
+					"border-red-400"
 				}`}
 			/>
 		) : (
@@ -67,17 +69,27 @@ const Input = (props) => {
 				onChange={changeHandler}
 				value={inputState.value}
 				onBlur={touchHandler}
-				className="border-2 border-slate-200 rounded-xl font-medium"
+				className={`resize-none w-full border-2 px-2 py-1 border-slate-200 rounded-xl font-medium focus:outline-none focus:border-slate-400 ${
+					!inputState.isValid &&
+					inputState.isTouched &&
+					"border-red-400"
+				}`}
 			/>
 		);
 
 	return (
-		<div
-			className={`shadow-lg w-fit  rounded-xl px-10 py-12 mx-auto my-5 font-mono font-semibold`}
-		>
-			<label htmlFor={props.id}>{props.label}</label>
-			{element}
-			{!inputState.isValid && inputState.isTouched && <p className="text-red-500 text-xs text-right my-2">{props.errorText}</p>}
+		<div className="mb-6">
+			<div className="py-2">
+				<label className="" htmlFor={props.id}>
+					{props.label}
+				</label>
+				{element}
+				{!inputState.isValid && inputState.isTouched && (
+					<p className="text-red-500 text-xs text-right">
+						{props.errorText}
+					</p>
+				)}
+			</div>
 		</div>
 	);
 };
